@@ -2,12 +2,20 @@
 //using docker as an agent
 
 pipeline {
-	agent {docker{image 'maven:3.8-jdk-11'}}
+	agent any
+	//agent {docker{image 'maven:3.8-jdk-11'}}
 	stages{
 		stage ('Build'){
 			steps{
 					//sh 'node --version'
 					echo "Build"
+					echo "PATH - $PATH"
+					echo "BUILD_NUM - $env.BUILD_NUM"
+					echo "BUILD_ID - $env.BUILD_ID"
+					echo "JOB_NAME - $env.JOB_NAME"
+					echo "BUILD_TAG - $env.BUILD_TAG"
+					echo "BUILD_URL - $env.BUILD_URL"
+
 			}
 		}
 		stage ('Test'){
