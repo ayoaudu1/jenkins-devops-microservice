@@ -2,7 +2,7 @@
 //using docker as an agent
 
 pipeline {
-	agent { docker {image 'node:17.4'}}
+	agent any
 	stages{
 		stage ('Build'){
 			steps{
