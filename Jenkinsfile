@@ -6,7 +6,7 @@ pipeline {
 	stages{
 		stage ('Build'){
 			steps{
-					sh 'node --version'
+					//sh 'node --version'
 					echo "Build"
 			}
 		}
@@ -31,7 +31,7 @@ pipeline {
 		failure{
 				echo " i only run when there is a failure"
 		}
-		changed {
+		changed{
 				echo "status don change sir"
 		}
 	}
