@@ -5,16 +5,16 @@ pipeline {
 	agent any
 	//agent {docker{image 'maven:3.8-jdk-11'}}
 	environment {
-		mavenHome = tool 'myMaven'
-		dockerHome = tool 'myDocker'
 		
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
 		PATH ="$dockerHome/bin:$mavenHome/bin:$PATH"
 	}
 	stages{
 		stage ('Build'){
 			steps{
-					sh 'docker version'
 					sh 'mvn --version'
+					sh 'docker version'
 					echo "Build"
 					echo "PATH - $PATH"
 					echo "BUILD_NUM - $env.BUILD_NUM"
