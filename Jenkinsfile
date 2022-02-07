@@ -2,7 +2,7 @@
 //using docker as an agent
 
 pipeline {
-	agent { docker {image 'maven:3.6.3'}}
+	agent { any {image 'maven:3.6.3'}}
 	stages{
 		stage ('Build'){
 			steps{
@@ -30,6 +30,9 @@ pipeline {
 		}
 		failure{
 				echo " i only run when there is a failure"
+		}
+		changed {
+				echo "status don change sir"
 		}
 	}
 }
